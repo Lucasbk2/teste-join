@@ -1,7 +1,9 @@
 # teste-join
 
+/.idea/
 /venv/
 /testejoin/static/
 /testejoin/mainapp/migrations/0001_initial.py
 /testejoin/mainapp/migrations/0002_rename_pessoa_ponto.py
 /testejoin/mainapp/migrations/0003_auto_20220106_1540.py
+/testejoin/testejoin/.env
