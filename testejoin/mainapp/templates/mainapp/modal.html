@@ -1,0 +1,42 @@
+<div class="modal" id="modal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Adicionar Novo Ponto</h5>
+            </div>
+
+            <form method="post">
+                {% csrf_token %}
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row needs-validation" novalidate>
+                            <label for="inputNome" class="form-label">Nome:</label>
+                            <input type="text" name="nome" class="form-control" id="inputNome" maxlength="200" required>
+                        </div>
+                        <div class="row needs-validation" novalidate>
+                            <label for="inputLatitude" class="form-label">Latitude:</label>
+                            <input type="text" name="latitude" class="form-control" id="inputLatitude" maxlength="20"
+                                   required>
+                        </div>
+                        <div class="row needs-validation" novalidate>
+                            <label for="inputLongitude" class="form-label">Longitude:</label>
+                            <input type="text" name="longitude" class="form-control" id="inputLongitude" maxlength="20"
+                                   required>
+                        </div>
+                        <div class="row needs-validation" novalidate>
+                            <label for="inputData" class="form-label">Data de Expiração:</label>
+                            <input type="date" name="data" class="form-control" id="inputData" required>
+                            <div id="dataHelp1" class="form-text">Pontos expirados ficam marcados em vermelho no mapa.</div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" name="salvar" value="ok" class="btn btn-primary">Gravar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

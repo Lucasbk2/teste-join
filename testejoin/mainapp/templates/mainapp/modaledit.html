@@ -1,0 +1,47 @@
+<div class="modal" id="modaledit" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Editar Ponto</h5>
+            </div>
+
+            <form method="post">
+                {% csrf_token %}
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row needs-validation" novalidate>
+                            <label for="inputNome" class="form-label">Nome:</label>
+                            <input type="text" name="nome" class="form-control" id="inputNome"
+                                   value="{{ponto_localizado.nome}}" maxlength="200" required>
+                        </div>
+                        <div class="row needs-validation" novalidate>
+                            <label for="inputLatitude" class="form-label">Latitude:</label>
+                            <input type="text" name="latitude" class="form-control" id="inputLatitude"
+                                   value="{{ponto_localizado.latitude}}" maxlength="20" required>
+                        </div>
+                        <div class="row needs-validation" novalidate>
+                            <label for="inputLongitude" class="form-label">Longitude:</label>
+                            <input type="text" name="longitude" class="form-control" id="inputLongitude"
+                                   value="{{ponto_localizado.longitude}}" maxlength="20" required>
+                        </div>
+                        <div class="row needs-validation" novalidate>
+                            <label for="inputData" class="form-label">Data de Expiração:</label>
+                            <input type="date" name="data" class="form-control" id="inputData"
+                                   value="{{ano}}-{{mes}}-{{dia}}" required>
+                            <div id="dataHelp2" class="form-text">Pontos expirados ficam marcados em vermelho no mapa.</div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer" style="display:block;text-align:center;">
+                    <button type="submit" name="atualizar" value="ok" class="btn btn-primary salvar">Salvar</button>
+                    <button type="button" class="btn btn-secondary cancelar" data-bs-dismiss="modaledit">Cancelar
+                    </button>
+                    <button type="submit" name="deletar" value="ok" class="btn btn-danger deletar"
+                            data-bs-dismiss="modaledit">Excluir
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

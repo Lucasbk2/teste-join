@@ -1,0 +1,72 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Página Principal</title>
+    <link rel="stylesheet" href="{% static 'mainapp/bootstrap/css/bootstrap.min.css'%}">
+    <script type="text/javascript" src="{% static 'mainapp/jquery/jquery-3.6.0.js'%}"></script>
+    <script type="text/javascript" src="{% static 'mainapp/bootstrap/js/bootstrap.min.js'%}"></script>
+    <style>.maximo{height:100%;}</style>
+</head>
+<body class="maximo">
+
+<div class="container maximo">
+    <div class="row" style="height:2%;"></div>
+    <div class="row" style="height:85%">
+        <div class="col maximo">
+            {{mapa|safe}}
+        </div>
+
+    </div>
+    <div class="row text-center">
+        <div class="col" style="margin-top:1%">
+            <button type="button" data-bs-toggle="modal" data-bs-target="#modal" class="btn btn-lg btn-primary">Incluir
+                Novo Alvo
+            </button>
+        </div>
+    </div>
+
+</div>
+
+{% include 'mainapp/modal.html' %}
+
+<script type="text/javascript">
+
+{%if ponto_localizado%}
+$(window).on('load', function() {
+    $('#modaledit').modal('show');
+    });
+
+{%endif%}
+
+
+
+</script>
+{%if ponto_localizado%}
+{%include 'mainapp/modaledit.html'%}
+<script>
+    $(".cancelar").click(function(){
+        $('#modaledit').modal('toggle');
+    })
+    $(".salvar").click(function(){
+        $('#modaledit').modal('hide');
+    })
+    $(".deletar").click(function(){
+        $('#modaledit').modal('hide');
+    })
+
+
+</script>
+{%endif%}
+<script>
+    {%if erro%}
+        alert('{{erro}}');
+    {% endif %}
+
+
+</script>
+
+</body>
+</html>
